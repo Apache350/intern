@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup form </title>
+    </head>
+    <body>
+       <h1> Welcome </h1>
+     
+       <form action=" " method="POST" novalidate>
+        
+            {% for fm in form %}
+            {{fm.label_tag}} {{ fm}}<br><br>
+            {{fm.errors}}
+            {% endfor %}
+       <br>
+       <label for="Address">City</label>
+<input type="text" id="Address" name="City"><br><br>
+
+<label for="Address">State</label>
+<input type="text" id="Address" name="State"><br><br>
+
+<label for="Address">pincode</label>
+<input type="digit" id="Address" name="pincode"><br><br>
+
+       <label for="Profile picture"> upload your Profile Picture</label>
+       <input type="file" id="Picture" name="Picture"><br><br>
+        <input type="submit" value="submit">
+
+        {% csrf_token %}
+       </form>
+       
+
+       {% if messages %}
+       {% for msg in messages %}
+       {{msg}}
+       {% endfor %}
+       {% endif %}
+        
+       
+</body>
+</html>
